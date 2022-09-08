@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Bewertung abgeben</h1>
+    {% if form %}
+        <form action="" method="POST">
+            <p>
+                {{ form.hidden_tag() }}
+                {{ form.bewertung.label }}<br>
+                {{ form.bewertung(cols=64, rows=8) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    {% endif %}
+
+    {% for rezepteintrag in rezeptposts %}
+        {% include '_post.html' %}
+    {% endfor %}
+    
+{% endblock %}

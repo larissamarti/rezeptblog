@@ -1,0 +1,25 @@
+    <table>
+
+        
+        <tr valign="top">
+            <td><img src="{{ rezepteintrag.user.avatar(36) }}"></td>
+            <td><a href="{{ url_for('user', username=rezepteintrag.user.username) }}">{{ rezepteintrag.user.username }}</a><h4>Rezept: {{ rezepteintrag.titel }}</h4>
+            <b>Zutaten:</b> <br>{{ rezepteintrag.zutat }}
+            <br><b>Zubereitung:</b> <br>{{ rezepteintrag.rezeptbeschreibung }}
+            <p>
+                {% for bewertung in rezepteintrag.get_bewertungen() %}
+                <br><b>Bewertung von {{ bewertung.get_username() }}:</b> <br>{{ bewertung.bewertung }}<br>
+                {% endfor %}
+            
+            </p>
+            {% if formbew %}
+            <br><form action="{{ url_for('bewertung', id=rezepteintrag.id) }}" method="post">
+                    {{ formbew.hidden_tag() }}
+                    {{ formbew.submit(value='bewerten') }}
+            </form>
+            {% endif %}
+            </td>
+                     
+        </tr>
+       
+    </table>

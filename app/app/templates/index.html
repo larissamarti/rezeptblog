@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% if form %}
+    <form action="" method="post">
+    <p>
+        {{ form.hidden_tag() }}
+        {{ form.titel.label }}<br>
+        {{ form.titel }}<br>
+    </p>
+    <p>
+        {{ form.zutat.label }}<br>
+        {{ form.zutat(cols=64, rows=8) }}<br>
+    </p>
+    <p>
+        {{ form.rezeptbeschreibung.label }}<br>
+        {{ form.rezeptbeschreibung(cols=64, rows=8) }}<br>
+    </p>
+
+    <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+
+    
+    {% for rezepteintrag in rezeptposts %}
+        {% include '_post.html' %}
+    {% endfor %}
+    
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Newer posts</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
+{% endblock %}
+ 
