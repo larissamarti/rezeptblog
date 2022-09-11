@@ -1,8 +1,8 @@
 # rezeptblog
 
-create a file named "var.env" with following environment varbiales in folder rezeptblog/app:
+credentials and keys for the app and db connection -> create a file named "var.env" with following environment varbiales in folder rezeptblog/app:
 
- SECRET_KEY=secret
+ SECRET_KEY="secret"
  
  DATABASE_URL=mysql+pymysql://"user":"key"@"containername db"/"db name"
  
