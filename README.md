@@ -4,7 +4,7 @@ credentials and keys for the app and db connection -> create a file named "var.e
 
  SECRET_KEY="secret"
  
- DATABASE_URL=mysql+pymysql://"user":"key"@"containername db"/"db name"
+ DATABASE_URL=mysql+pymysql://"user":"key"@"containername db"/"db name" -> (check in docker-compose.yml file if credentials for the db matches)
  
  FLASK_APP=rezeptblog.py
  
